@@ -398,30 +398,54 @@
         préparer votre arrivée sur la plateforme.</p>
     </div>
     <div class="forms">
-      <!-- ⚠️ Tally : créer un formulaire "Pré-inscription Enseigne" sur https://tally.so
-           (compte créé avec contact@maison-presence.com, ajouter lesbonscoachs@gmail.com
-           en destinataire supplémentaire dans Settings → Notifications).
-           Puis remplacer KYa4RA par l'identifiant du formulaire
-           (visible dans l'URL : tally.so/r/<ID>). -->
+      <!-- ⚠️ Formspree : remplacer xbdbpydw par l'identifiant du formulaire (forme xpzgnryw). -->
       <div class="fcard" id="form-enseigne">
         <h3>Enseigne</h3>
         <p class="intro">Vous dirigez ou animez des boutiques et souhaitez offrir un vrai conseil à vos clients.</p>
-        <iframe
-          data-tally-src="https://tally.so/embed/KYa4RA?alignLeft=1&amp;hideTitle=1&amp;transparentBackground=1&amp;dynamicHeight=1"
-          loading="lazy" width="100%" height="500" frameborder="0" marginheight="0" marginwidth="0"
-          title="Pré-inscription enseigne, Maison Présence"></iframe>
-        <p class="legal">Sans engagement. Vos données ne sont ni revendues ni transmises à des tiers.</p>
+        <form action="https://formspree.io/f/xbdbpydw" method="POST">
+          <input type="hidden" name="profil" value="enseigne" />
+          <input type="hidden" name="_subject" value="Pré-inscription enseigne, Maison Présence" />
+          <div class="field"><input type="text" name="nom" placeholder="Votre nom" required /></div>
+          <div class="field"><input type="text" name="enseigne" placeholder="Nom de l'enseigne" required /></div>
+          <div class="field"><input type="email" name="email" placeholder="Email professionnel" required /></div>
+          <div class="field">
+            <select name="secteur" required>
+              <option value="">Votre secteur…</option>
+              <option>Mode &amp; image</option>
+              <option>Maison &amp; décoration</option>
+              <option>Bricolage</option>
+              <option>Autre</option>
+            </select>
+          </div>
+          <div class="field"><input type="text" name="boutiques" placeholder="Nombre de boutiques (facultatif)" /></div>
+          <button type="submit" class="btn btn-primary">Pré-inscrire mon enseigne</button>
+          <p class="legal">Sans engagement. Vos données ne sont ni revendues ni transmises à des tiers.</p>
+        </form>
       </div>
-      <!-- ⚠️ Tally : créer un formulaire "Pré-inscription Expert".
-           Remplacer 9qoYxp par l'identifiant du formulaire. -->
+      <!-- ⚠️ Formspree : même endpoint que le formulaire enseigne (le champ "profil" permet de différencier). -->
       <div class="fcard" id="form-expert">
         <h3>Expert</h3>
         <p class="intro">Coach en image, architecte d'intérieur, décorateur, bricoleur, indépendant·e.</p>
-        <iframe
-          data-tally-src="https://tally.so/embed/9qoYxp?alignLeft=1&amp;hideTitle=1&amp;transparentBackground=1&amp;dynamicHeight=1"
-          loading="lazy" width="100%" height="500" frameborder="0" marginheight="0" marginwidth="0"
-          title="Pré-inscription expert, Maison Présence"></iframe>
-        <p class="legal">Sans engagement. Une attestation RC pro vous sera demandée avant la première mission.</p>
+        <form action="https://formspree.io/f/xbdbpydw" method="POST">
+          <input type="hidden" name="profil" value="expert" />
+          <input type="hidden" name="_subject" value="Pré-inscription expert, Maison Présence" />
+          <div class="field"><input type="text" name="nom" placeholder="Votre nom" required /></div>
+          <div class="field">
+            <select name="metier" required>
+              <option value="">Votre métier…</option>
+              <option>Coach en image / relooking</option>
+              <option>Architecte d'intérieur</option>
+              <option>Décorateur</option>
+              <option>Bricoleur</option>
+              <option>Autre</option>
+            </select>
+          </div>
+          <div class="field"><input type="email" name="email" placeholder="Email" required /></div>
+          <div class="field"><input type="url" name="portfolio" placeholder="LinkedIn ou portfolio (facultatif)" /></div>
+          <div class="field"><input type="text" name="zone" placeholder="Votre zone d'intervention" /></div>
+          <button type="submit" class="btn btn-primary">Rejoindre le réseau fondateur</button>
+          <p class="legal">Sans engagement. Une attestation RC pro vous sera demandée avant la première mission.</p>
+        </form>
       </div>
     </div>
   </div>
@@ -465,14 +489,19 @@
       <p>Une interrogation sur le concept, une demande de partenariat ou de presse :
         nous vous répondons rapidement.</p>
     </div>
-    <!-- ⚠️ Tally : créer un formulaire "Contact général".
-         Remplacer LZ6jVj par l'identifiant du formulaire. -->
+    <!-- ⚠️ Formspree : même endpoint que les formulaires d'inscription. -->
     <div class="fcard">
-      <iframe
-        data-tally-src="https://tally.so/embed/LZ6jVj?alignLeft=1&amp;hideTitle=1&amp;transparentBackground=1&amp;dynamicHeight=1"
-        loading="lazy" width="100%" height="400" frameborder="0" marginheight="0" marginwidth="0"
-        title="Message de contact, Maison Présence"></iframe>
-      <p class="legal">Vos données ne sont ni revendues ni transmises à des tiers.</p>
+      <form action="https://formspree.io/f/xbdbpydw" method="POST">
+        <input type="hidden" name="profil" value="contact" />
+        <input type="hidden" name="_subject" value="Message de contact, Maison Présence" />
+        <div class="field"><input type="text" name="nom" placeholder="Votre nom" required /></div>
+        <div class="field"><input type="email" name="email" placeholder="Votre email" required /></div>
+        <div class="field">
+          <textarea name="message" rows="4" placeholder="Votre message" required style="resize:vertical"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Envoyer le message</button>
+        <p class="legal">Vos données ne sont ni revendues ni transmises à des tiers.</p>
+      </form>
     </div>
   </div>
 </section>
@@ -521,9 +550,6 @@
     </div>
   </div>
 </footer>
-
-<!-- Tally : script qui redimensionne automatiquement les iframes en fonction de la hauteur du formulaire -->
-<script async src="https://tally.so/widgets/embed.js"></script>
 
 </body>
 </html>
