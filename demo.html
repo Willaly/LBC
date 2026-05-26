@@ -4,9 +4,10 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Maison Présence, Maquette interactive</title>
+<link rel="icon" type="image/svg+xml" href="../pre-lancement/favicon.svg" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
 <style>
   :root{
     --cream:#FAF6F0; --ink:#1A1A1A; --soft:#5C5C5C; --terra:#A0492E;
@@ -14,15 +15,16 @@
   }
   *{box-sizing:border-box;margin:0;padding:0}
   body{font-family:'Inter',sans-serif;background:var(--cream);color:var(--ink);-webkit-font-smoothing:antialiased}
-  .display{font-family:'Fraunces',serif}
+  .display{font-family:'Playfair Display',serif}
   a{color:inherit;text-decoration:none}
   button{font-family:inherit;cursor:pointer;border:none;background:none}
 
   /* ---- top bar ---- */
   .topbar{position:sticky;top:0;z-index:50;background:var(--white);border-bottom:1px solid var(--border);
     display:flex;align-items:center;justify-content:space-between;padding:14px 26px;flex-wrap:wrap;gap:12px}
-  .brand{font-family:'Fraunces',serif;font-size:22px;font-weight:600}
+  .brand{display:inline-flex;align-items:center;gap:9px;font-family:'Playfair Display',serif;font-size:21px;font-weight:500;letter-spacing:-0.005em;line-height:1}
   .brand .dot{color:var(--terra)}
+  .brand-mark{flex-shrink:0}
   .role-switch{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
   .role-switch .lbl{font-size:12px;color:var(--soft);margin-right:4px}
   .pill{padding:7px 14px;border-radius:999px;font-size:13px;font-weight:500;border:1px solid var(--border);color:var(--soft);background:var(--white)}
@@ -44,14 +46,14 @@
 
   /* ---- components ---- */
   .eyebrow{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--soft);font-weight:500}
-  h1.page{font-family:'Fraunces',serif;font-size:34px;font-weight:600;margin:6px 0 4px}
+  h1.page{font-family:'Playfair Display',serif;font-size:34px;font-weight:600;margin:6px 0 4px}
   .lead{color:var(--soft);font-size:15px;margin-bottom:26px}
   .card{background:var(--white);border:1px solid var(--border);border-radius:4px;padding:22px}
   .grid{display:grid;gap:16px}
   .g3{grid-template-columns:repeat(3,1fr)}
   .g2{grid-template-columns:repeat(2,1fr)}
   @media(max-width:760px){.g3,.g2{grid-template-columns:1fr}}
-  .kpi .num{font-family:'Fraunces',serif;font-size:34px;font-weight:600;color:var(--terra)}
+  .kpi .num{font-family:'Playfair Display',serif;font-size:34px;font-weight:600;color:var(--terra)}
   .kpi .cap{font-size:13px;color:var(--soft);margin-top:2px}
   .btn{display:inline-block;padding:11px 20px;border-radius:3px;font-size:14px;font-weight:500}
   .btn-primary{background:var(--terra);color:var(--cream)}
@@ -101,12 +103,12 @@
   .toast.show{transform:translateX(-50%) translateY(0)}
 
   .hero{padding:54px 0 30px}
-  .hero h1{font-family:'Fraunces',serif;font-size:52px;font-weight:600;line-height:1.05;max-width:14ch}
+  .hero h1{font-family:'Playfair Display',serif;font-size:52px;font-weight:600;line-height:1.05;max-width:14ch}
   .hero h1 em{font-style:italic;color:var(--terra)}
   .stars{color:var(--gold);letter-spacing:2px}
   .note{background:#F3E0D8;border-left:3px solid var(--terra);padding:12px 16px;border-radius:3px;font-size:13px;color:var(--terra)}
   .avatar{width:46px;height:46px;border-radius:50%;background:var(--gold);color:var(--white);
-    display:flex;align-items:center;justify-content:center;font-family:'Fraunces',serif;font-size:18px;flex-shrink:0}
+    display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:18px;flex-shrink:0}
   .av-sm{width:34px;height:34px;font-size:14px}
   .msg{display:flex;gap:12px;margin-bottom:16px}
   .msg .bubble{background:var(--cream);border:1px solid var(--border);border-radius:8px;padding:12px 14px;font-size:14px}
@@ -123,7 +125,13 @@
 
 <!-- ════════ TOP BAR ════════ -->
 <header class="topbar">
-  <div class="brand">Maison Présence<span class="dot">.</span></div>
+  <div class="brand" aria-label="Maison Présence">
+    <svg class="brand-mark" width="20" height="26" viewBox="0 0 22 28" fill="none" aria-hidden="true">
+      <path d="M 2 28 L 2 12 A 9 9 0 0 1 20 12 L 20 28" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" fill="none"/>
+      <circle cx="11" cy="10" r="2.3" fill="#A0492E"/>
+    </svg>
+    <span>Maison Présence<span class="dot">.</span></span>
+  </div>
   <div class="role-switch">
     <span class="lbl">Vous explorez en tant que&nbsp;:</span>
     <button class="pill active" data-role="visiteur" onclick="setRole('visiteur')">Visiteur</button>
