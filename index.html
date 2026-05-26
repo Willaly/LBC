@@ -1,332 +1,529 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Maison Présence — Le conseil retrouve sa place en boutique</title>
-  <meta name="description" content="Maison Présence connecte les enseignes du retail à des experts indépendants pour offrir à leurs clients un conseil personnalisé en magasin." />
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Maison Présence, Le conseil retrouve sa place en boutique</title>
+<meta name="description" content="Maison Présence connecte les enseignes du retail à des experts indépendants pour offrir un conseil personnalisé en boutique. Pré-inscriptions fondateurs ouvertes, lancement décembre 2026." />
+<meta property="og:title" content="Maison Présence, Le conseil retrouve sa place en boutique" />
+<meta property="og:description" content="La marketplace qui remet l'humain au cœur du retail. Pré-inscrivez-vous comme enseigne ou expert fondateur." />
+<meta property="og:locale" content="fr_FR" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,ital,wght@9..144,0,400;9..144,0,500;9..144,0,600;9..144,1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --cream:#FAF6F0; --ink:#1A1A1A; --soft:#5C5C5C; --terra:#A0492E;
+    --terra-d:#83391F; --gold:#C7A968; --border:#E5DCCC; --white:#fff;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:'Inter',sans-serif;background:var(--cream);color:var(--ink);-webkit-font-smoothing:antialiased;line-height:1.6}
+  a{color:inherit;text-decoration:none}
+  button{font-family:inherit;cursor:pointer}
+  .display{font-family:'Fraunces',serif}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+  .eyebrow{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--soft);font-weight:500}
+  .gold-line::before{content:"";display:inline-block;width:30px;height:1px;background:var(--gold);margin-right:12px;vertical-align:middle}
 
-  <!-- Open Graph / SEO -->
-  <meta property="og:type" content="website" />
-  <meta property="og:title" content="Maison Présence — Le conseil retrouve sa place en boutique" />
-  <meta property="og:description" content="La plateforme qui amène l'expertise humaine dans vos boutiques. Coachs, architectes d'intérieur, décorateurs, bricoleurs : des moments de conseil sur-mesure pour vos clients." />
-  <meta property="og:locale" content="fr_FR" />
+  /* header */
+  header{position:sticky;top:0;z-index:50;background:rgba(250,246,240,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--border)}
+  .nav{display:flex;align-items:center;justify-content:space-between;padding:16px 24px;max-width:1080px;margin:0 auto}
+  .brand{font-family:'Fraunces',serif;font-size:23px;font-weight:600}
+  .brand .dot{color:var(--terra)}
+  .nav-links{display:flex;gap:28px;font-size:14px}
+  .nav-links a:hover{color:var(--terra)}
+  .btn{display:inline-block;padding:13px 24px;border-radius:3px;font-size:14px;font-weight:500;transition:.18s;border:1px solid transparent}
+  .btn-primary{background:var(--terra);color:var(--cream)}
+  .btn-primary:hover{background:var(--terra-d)}
+  .btn-ghost{border-color:var(--ink);color:var(--ink)}
+  .btn-ghost:hover{background:var(--ink);color:var(--cream)}
+  .btn-sm{padding:9px 16px;font-size:13px}
+  @media(max-width:760px){.nav-links{display:none}}
 
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  /* hero */
+  .hero{text-align:center;padding:76px 0 64px}
+  .badge{display:inline-block;background:#F3E0D8;color:var(--terra);font-size:12.5px;font-weight:500;
+    padding:7px 16px;border-radius:999px;letter-spacing:.04em;margin-bottom:26px}
+  .hero h1{font-family:'Fraunces',serif;font-size:60px;font-weight:600;line-height:1.04;letter-spacing:-.01em;max-width:16ch;margin:0 auto}
+  .hero h1 em{font-style:italic;color:var(--terra)}
+  .hero p.sub{font-size:19px;color:var(--soft);max-width:62ch;margin:24px auto 34px}
+  .hero-cta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+  .trust{margin-top:30px;font-size:13.5px;color:var(--soft)}
+  .trust strong{color:var(--ink)}
+  @media(max-width:760px){.hero h1{font-size:38px}.hero p.sub{font-size:17px}}
 
-  <!-- Tailwind via CDN (à remplacer par un build Tailwind en Phase 2) -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            cream: '#FAF6F0',
-            ink: '#1A1A1A',
-            'ink-soft': '#5C5C5C',
-            terracotta: '#A0492E',
-            'terracotta-dark': '#83391F',
-            gold: '#C7A968',
-            border: '#E5DCCC',
-          },
-          fontFamily: {
-            display: ['Fraunces', 'serif'],
-            sans: ['Inter', 'sans-serif'],
-          },
-          letterSpacing: {
-            'caption': '0.05em',
-          }
-        }
-      }
-    }
-  </script>
+  /* sections */
+  section{padding:64px 0}
+  .sec-head{text-align:center;margin-bottom:44px}
+  .sec-head h2{font-family:'Fraunces',serif;font-size:40px;font-weight:600;line-height:1.12;margin-top:14px}
+  .sec-head p{color:var(--soft);max-width:60ch;margin:12px auto 0}
+  @media(max-width:760px){.sec-head h2{font-size:30px}}
+  .band{background:var(--white);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+  .band-dark{background:var(--ink);color:var(--cream)}
+  .band-dark .eyebrow,.band-dark .sec-head p{color:#B8B0A6}
 
-  <style>
-    html { scroll-behavior: smooth; }
-    body { font-family: 'Inter', sans-serif; color: #1A1A1A; background: #FAF6F0; -webkit-font-smoothing: antialiased; }
-    .font-display { font-family: 'Fraunces', serif; font-optical-sizing: auto; }
-    .h1 { font-family: 'Fraunces', serif; font-weight: 600; line-height: 1.05; letter-spacing: -0.01em; }
-    .h2 { font-family: 'Fraunces', serif; font-weight: 600; line-height: 1.1; letter-spacing: -0.005em; }
-    .h3 { font-family: 'Fraunces', serif; font-weight: 500; line-height: 1.15; }
-    .caption { font-size: 13px; letter-spacing: 0.05em; text-transform: uppercase; font-weight: 500; color: #5C5C5C; }
-    .prose-warm p { color: #1A1A1A; line-height: 1.65; font-size: 17px; }
-    .prose-warm p + p { margin-top: 1.25em; }
-    .btn-primary { background: #A0492E; color: #FAF6F0; padding: 14px 26px; border-radius: 2px; font-weight: 500; transition: background 0.2s; display: inline-block; }
-    .btn-primary:hover { background: #83391F; }
-    .btn-secondary { background: transparent; color: #1A1A1A; border: 1px solid #1A1A1A; padding: 13px 25px; border-radius: 2px; font-weight: 500; transition: all 0.2s; display: inline-block; }
-    .btn-secondary:hover { background: #1A1A1A; color: #FAF6F0; }
-    .stat-num { font-family: 'Fraunces', serif; font-weight: 600; font-size: 56px; line-height: 1; color: #A0492E; }
-    .divider { height: 1px; background: #E5DCCC; }
-    .input-field { background: white; border: 1px solid #E5DCCC; padding: 12px 14px; border-radius: 2px; font-family: inherit; font-size: 16px; width: 100%; }
-    .input-field:focus { outline: none; border-color: #A0492E; }
-    .gold-accent::before { content: ""; display: inline-block; width: 32px; height: 1px; background: #C7A968; margin-right: 12px; vertical-align: middle; }
-    @media (max-width: 768px) {
-      .stat-num { font-size: 40px; }
-    }
-  </style>
+  /* stats */
+  .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .stat{text-align:center;padding:14px}
+  .stat .n{font-family:'Fraunces',serif;font-size:58px;font-weight:600;color:var(--terra);line-height:1}
+  .stat .c{color:var(--soft);font-size:14.5px;margin-top:12px}
+  @media(max-width:760px){.stats{grid-template-columns:1fr;gap:30px}}
+
+  /* steps */
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+  .step .num{font-family:'Fraunces',serif;font-size:30px;color:var(--terra)}
+  .step h3{font-family:'Fraunces',serif;font-size:21px;font-weight:500;margin:8px 0 6px}
+  .step p{color:var(--soft);font-size:14.5px}
+  @media(max-width:760px){.steps{grid-template-columns:1fr;gap:30px}}
+
+  /* product preview */
+  .browser{background:var(--white);border:1px solid var(--border);border-radius:8px;overflow:hidden;
+    box-shadow:0 20px 50px -20px rgba(26,26,26,.28)}
+  .browser-bar{display:flex;align-items:center;gap:6px;padding:11px 14px;background:#F1EBE1;border-bottom:1px solid var(--border)}
+  .browser-bar .d{width:10px;height:10px;border-radius:50%}
+  .browser-bar .url{margin-left:12px;background:var(--white);border:1px solid var(--border);border-radius:4px;
+    font-size:11px;color:var(--soft);padding:4px 12px;flex:1;max-width:280px}
+  .browser-body{padding:22px}
+  .featured{display:grid;grid-template-columns:1.25fr .85fr;gap:24px;align-items:center}
+  @media(max-width:860px){.featured{grid-template-columns:1fr}}
+  .mini-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:24px}
+  @media(max-width:760px){.mini-grid{grid-template-columns:1fr}}
+
+  /* mock UI bits */
+  .m-eyebrow{font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--soft);font-weight:600}
+  .m-title{font-family:'Fraunces',serif;font-weight:600;color:var(--ink)}
+  .m-kpis{display:flex;gap:10px;margin:12px 0}
+  .m-kpi{flex:1;background:var(--cream);border:1px solid var(--border);border-radius:4px;padding:10px;text-align:center}
+  .m-kpi .v{font-family:'Fraunces',serif;font-size:22px;color:var(--terra);font-weight:600}
+  .m-kpi .l{font-size:9px;color:var(--soft);margin-top:2px}
+  .m-card{background:#FBF1EC;border:1px solid #E6C9BD;border-radius:5px;padding:12px}
+  .m-badge{display:inline-block;font-size:9px;font-weight:600;padding:3px 8px;border-radius:999px;background:#F3E0D8;color:var(--terra)}
+  .m-badge.green{background:#E0EDE2;color:#3F6B47}
+  .m-btn{display:inline-block;font-size:10px;background:var(--terra);color:var(--cream);padding:6px 12px;border-radius:3px;margin-top:8px}
+  .m-stepper{display:flex;gap:0;margin:6px 0}
+  .m-step{flex:1;text-align:center;position:relative}
+  .m-step .dot{width:18px;height:18px;border-radius:50%;background:var(--white);border:2px solid var(--border);
+    margin:0 auto 5px;font-size:9px;display:flex;align-items:center;justify-content:center;color:var(--soft);position:relative;z-index:2}
+  .m-step.on .dot{background:var(--terra);border-color:var(--terra);color:var(--cream)}
+  .m-step.cur .dot{background:var(--gold);border-color:var(--gold);color:var(--ink)}
+  .m-step .t{font-size:8px;color:var(--soft);line-height:1.3}
+  .m-step::before{content:"";position:absolute;top:8px;left:-50%;width:100%;height:2px;background:var(--border);z-index:1}
+  .m-step:first-child::before{display:none}
+  .m-step.on::before,.m-step.cur::before{background:var(--terra)}
+  .m-row{display:flex;justify-content:space-between;align-items:center;font-size:11px;padding:7px 0;border-bottom:1px solid var(--border)}
+  .m-row:last-child{border-bottom:none}
+  .m-score{font-family:'Fraunces',serif;font-size:40px;font-weight:600;color:var(--terra)}
+  .stars{color:var(--gold);letter-spacing:1px}
+
+  /* value cards */
+  .vcols{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+  @media(max-width:760px){.vcols{grid-template-columns:1fr}}
+  .vcard{background:var(--white);border:1px solid var(--border);border-radius:6px;padding:32px}
+  .vcard h3{font-family:'Fraunces',serif;font-size:25px;font-weight:600;margin-bottom:6px}
+  .vlist{list-style:none;margin:16px 0}
+  .vlist li{padding:8px 0 8px 26px;position:relative;font-size:14.5px;color:var(--soft)}
+  .vlist li::before{content:"→";position:absolute;left:0;color:var(--terra);font-weight:600}
+  .founder{background:#FBF1EC;border:1px solid #E6C9BD;border-radius:5px;padding:16px;margin-top:6px}
+  .founder .tag{font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--terra)}
+
+  /* forms */
+  .forms{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+  @media(max-width:760px){.forms{grid-template-columns:1fr}}
+  .fcard{background:var(--white);border:1px solid var(--border);border-radius:6px;padding:30px}
+  .fcard h3{font-family:'Fraunces',serif;font-size:23px;font-weight:600}
+  .fcard .intro{color:var(--soft);font-size:14px;margin:6px 0 18px}
+  .field{margin-bottom:12px}
+  .field input,.field select,.field textarea{width:100%;padding:11px 13px;border:1px solid var(--border);
+    border-radius:3px;font-family:inherit;font-size:14px;background:var(--cream)}
+  .field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--terra);background:var(--white)}
+  .fcard .btn-primary{width:100%;text-align:center;margin-top:6px}
+  .legal{font-size:11.5px;color:var(--soft);margin-top:10px}
+
+  /* faq */
+  .faq details{background:var(--white);border:1px solid var(--border);border-radius:5px;padding:0 20px;margin-bottom:10px}
+  .faq summary{padding:18px 0;font-weight:500;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center}
+  .faq summary::-webkit-details-marker{display:none}
+  .faq summary::after{content:"+";color:var(--terra);font-size:20px}
+  .faq details[open] summary::after{content:", "}
+  .faq details p{padding:0 0 18px;color:var(--soft);font-size:14.5px}
+
+  /* footer */
+  footer{background:var(--ink);color:var(--cream);padding:54px 0 30px}
+  footer .cols{display:grid;grid-template-columns:2fr 1fr 1fr;gap:34px;margin-bottom:32px}
+  @media(max-width:760px){footer .cols{grid-template-columns:1fr;gap:24px}}
+  footer a{color:rgba(250,246,240,.8)}
+  footer a:hover{color:var(--gold)}
+  footer .fbrand{font-family:'Fraunces',serif;font-size:22px;margin-bottom:8px}
+  footer .small{font-size:12px;color:rgba(250,246,240,.5);border-top:1px solid rgba(250,246,240,.2);padding-top:20px;
+    display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+</style>
 </head>
-
 <body>
 
-<!-- ============ HEADER ============ -->
-<header class="border-b border-border">
-  <div class="max-w-6xl mx-auto px-6 py-5 flex items-center justify-between">
-    <a href="#top" class="font-display text-xl md:text-2xl font-medium tracking-tight">Maison Présence</a>
-    <nav class="hidden md:flex items-center gap-8 text-sm">
-      <a href="#constat" class="hover:text-terracotta transition">Pourquoi</a>
-      <a href="#fonctionnement" class="hover:text-terracotta transition">Comment ça marche</a>
-      <a href="#enseignes" class="hover:text-terracotta transition">Enseignes</a>
-      <a href="#experts" class="hover:text-terracotta transition">Experts</a>
+<!-- ════════ HEADER ════════ -->
+<header>
+  <div class="nav">
+    <a href="#top" class="brand">Maison Présence<span class="dot">.</span></a>
+    <nav class="nav-links">
+      <a href="#concept">Le concept</a>
+      <a href="#apercu">Aperçu</a>
+      <a href="#enseignes">Enseignes</a>
+      <a href="#experts">Experts</a>
+      <a href="#contact">Contact</a>
     </nav>
-    <a href="#enseignes" class="btn-primary text-sm py-2 px-4 hidden md:inline-block">Découvrir</a>
+    <a href="#inscription" class="btn btn-primary btn-sm">Pré-inscription</a>
   </div>
 </header>
 
-<!-- ============ HERO ============ -->
-<section id="top" class="px-6 pt-20 pb-24 md:pt-32 md:pb-36">
-  <div class="max-w-5xl mx-auto text-center">
-    <p class="caption mb-8">Lancement Paris &amp; Île-de-France · Été 2026</p>
-    <h1 class="h1 text-5xl md:text-7xl mb-8">
-      Le conseil retrouve sa place<br/>
-      <span class="text-terracotta italic font-display">en boutique</span>.
-    </h1>
-    <p class="text-lg md:text-xl text-ink-soft max-w-3xl mx-auto leading-relaxed mb-12">
-      Maison Présence connecte les enseignes du retail à des experts indépendants —
-      coachs en image, architectes d'intérieur, décorateurs, bricoleurs — pour offrir
-      à vos clients des moments de conseil sur-mesure, en magasin.
+<!-- ════════ HERO ════════ -->
+<section class="hero" id="top">
+  <div class="wrap">
+    <span class="badge">● Lancement décembre 2026 · France entière</span>
+    <h1>Le conseil retrouve sa place <em>en boutique</em>.</h1>
+    <p class="sub">
+      Maison Présence connecte les enseignes du retail à des experts indépendants, coachs en image, architectes d'intérieur, décorateurs, pour offrir à leurs clients
+      des moments de conseil sur-mesure. La plateforme ouvre bientôt. Réservez votre place
+      de membre fondateur.
     </p>
-    <div class="flex flex-col sm:flex-row gap-4 justify-center">
-      <a href="#enseignes" class="btn-primary">Je suis une enseigne</a>
-      <a href="#experts" class="btn-secondary">Je suis un expert</a>
+    <div class="hero-cta">
+      <a href="#enseignes" class="btn btn-primary">Je suis une enseigne</a>
+      <a href="#experts" class="btn btn-ghost">Je suis un expert</a>
     </div>
+    <p class="trust">Les inscriptions fondateurs sont <strong>ouvertes</strong>. Soyez parmi les premiers.</p>
   </div>
 </section>
 
-<!-- ============ LE CONSTAT ============ -->
-<section id="constat" class="px-6 py-24 bg-white border-y border-border">
-  <div class="max-w-6xl mx-auto">
-    <div class="text-center mb-16">
-      <p class="caption mb-5 gold-accent">Le constat</p>
-      <h2 class="h2 text-4xl md:text-5xl max-w-3xl mx-auto">
-        Le retail a oublié l'humain. Les chiffres le rappellent.
-      </h2>
+<!-- ════════ CONSTAT ════════ -->
+<section class="band" id="constat">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow gold-line">Le constat</span>
+      <h2>Vos clients préfèrent vos boutiques.<br/>À condition d'y trouver mieux qu'en ligne.</h2>
     </div>
-
-    <div class="grid md:grid-cols-3 gap-12 md:gap-8 max-w-5xl mx-auto">
-      <div class="text-center">
-        <div class="stat-num">3 %</div>
-        <p class="mt-4 text-ink-soft text-base leading-relaxed">
-          Le taux de conversion moyen en e-commerce. Autrement dit, 97&nbsp;% des visiteurs repartent sans rien acheter.
-        </p>
-      </div>
-      <div class="text-center">
-        <div class="stat-num">70 %</div>
-        <p class="mt-4 text-ink-soft text-base leading-relaxed">
-          Des visiteurs qui prennent rendez-vous avec un conseiller finalisent leur achat.
-          Le contact humain change tout.
-        </p>
-      </div>
-      <div class="text-center">
-        <div class="stat-num">×3</div>
-        <p class="mt-4 text-ink-soft text-base leading-relaxed">
-          Le coût d'acquisition client a triplé en 5 ans. Faire venir en boutique sans rien
-          y proposer de mieux qu'en ligne, c'est rentabiliser à perte.
-        </p>
-      </div>
+    <div class="stats">
+      <div class="stat"><div class="n">84 %</div><div class="c">Des Français préfèrent acheter en magasin physique : toucher, essayer, repartir avec leurs articles. La boutique garde une longueur d'avance, à condition d'en justifier le déplacement.</div></div>
+      <div class="stat"><div class="n">−2,3 %</div><div class="c">La fréquentation des magasins physiques recule chaque année (−3,5 % en centre-ville). Faire venir devient coûteux : chaque visite doit compter davantage.</div></div>
+      <div class="stat"><div class="n">71 %</div><div class="c">Des consommateurs attendent une interaction personnalisée. Seules 15 % des enseignes l'ont véritablement mise en place : c'est votre opportunité.</div></div>
     </div>
-
-    <p class="text-xs text-ink-soft text-center mt-12 max-w-2xl mx-auto italic">
-      Sources&nbsp;: Salesforce State of Commerce 2024 (3&nbsp;% conversion e-commerce), benchmarks observés en mode premium personnalisée (taux de conversion sur RDV), Meta &amp; Google CPC tracking 2019-2024.
+    <p style="text-align:center;font-size:12px;color:var(--soft);margin-top:26px;font-style:italic">
+      Sources : préférence magasin, études consommation 2024 ; fréquentation, Procos 2023 ; personnalisation, McKinsey 2024.
     </p>
   </div>
 </section>
 
-<!-- ============ LA PROMESSE ============ -->
-<section class="px-6 py-24">
-  <div class="max-w-5xl mx-auto">
-    <div class="text-center mb-16">
-      <p class="caption mb-5 gold-accent">Notre conviction</p>
-      <h2 class="h2 text-4xl md:text-5xl mb-8">
-        Une boutique qui ne propose rien de plus<br/>qu'un site web n'a plus de raison d'exister.
-      </h2>
-      <p class="text-lg text-ink-soft max-w-3xl mx-auto leading-relaxed">
-        Le seul vrai luxe d'une boutique aujourd'hui, c'est <em class="font-display italic">l'attention</em>.
-        Le temps qu'on prend, l'expert qu'on rencontre, le conseil qu'on n'aurait jamais reçu
-        derrière un écran. Maison Présence ramène cette attention en magasin —
-        sans CDI à recruter, sans formation lourde, sans engagement long.
-      </p>
+<!-- ════════ CONCEPT ════════ -->
+<section id="concept">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow gold-line">Le concept</span>
+      <h2>En boutique, l'attention portée au client<br/>fait souvent la différence.</h2>
+      <p>L'un des principaux atouts d'un point de vente physique, c'est la qualité de
+        l'accompagnement humain. Maison Présence aide les enseignes à renforcer cette
+        dimension, ponctuellement, sans recrutement ni formation lourde. Un événement,
+        un expert, une expérience.</p>
+    </div>
+    <div class="steps">
+      <div class="step"><div class="num">01</div><h3>Vous briefez</h3><p>L'enseigne décrit sa boutique, sa clientèle, le moment qu'elle veut créer.</p></div>
+      <div class="step"><div class="num">02</div><h3>Nous proposons</h3><p>Deux ou trois experts sélectionnés sur leur expertise et leur affinité de marque.</p></div>
+      <div class="step"><div class="num">03</div><h3>L'expert intervient</h3><p>Le jour J, vos clients vivent un vrai moment d'écoute et de conseil.</p></div>
     </div>
   </div>
 </section>
 
-<!-- ============ COMMENT ÇA MARCHE ============ -->
-<section id="fonctionnement" class="px-6 py-24 bg-white border-y border-border">
-  <div class="max-w-6xl mx-auto">
-    <div class="text-center mb-20">
-      <p class="caption mb-5 gold-accent">Comment ça marche</p>
-      <h2 class="h2 text-4xl md:text-5xl">Trois étapes, un événement, un souvenir.</h2>
+<!-- ════════ APERÇU PRODUIT ════════ -->
+<section class="band" id="apercu">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow gold-line">Aperçu du futur produit</span>
+      <h2>Voici ce que vous utiliserez.</h2>
+      <p>La plateforme est en construction. Voici un aperçu réel de l'interface, et une démo entièrement cliquable pour vous projeter.</p>
     </div>
 
-    <div class="grid md:grid-cols-3 gap-12">
+    <!-- featured : détail prestation -->
+    <div class="featured">
+      <div class="browser">
+        <div class="browser-bar">
+          <span class="d" style="background:#E06A5B"></span><span class="d" style="background:#E5B85C"></span><span class="d" style="background:#7FB87F"></span>
+          <span class="url">maison-presence.fr/enseigne/prestation</span>
+        </div>
+        <div class="browser-body">
+          <div class="m-eyebrow">Prestation MP-2026-0042</div>
+          <div class="m-title" style="font-size:17px;margin:3px 0 12px">Atelier coaching image, collection printemps</div>
+          <div class="m-stepper">
+            <div class="m-step on"><div class="dot">✓</div><div class="t">Payée</div></div>
+            <div class="m-step on"><div class="dot">✓</div><div class="t">Réalisée</div></div>
+            <div class="m-step cur"><div class="dot">3</div><div class="t">À valider</div></div>
+            <div class="m-step"><div class="dot">4</div><div class="t">Validée</div></div>
+            <div class="m-step"><div class="dot">5</div><div class="t">Expert payé</div></div>
+          </div>
+          <div class="m-card" style="margin-top:12px">
+            <span class="m-badge">Action requise</span>
+            <div style="font-size:11px;margin-top:6px">Validez la prestation pour libérer le paiement de <strong>1 000,00 €</strong> vers l'experte.</div>
+            <span class="m-btn">Valider et libérer le paiement</span>
+          </div>
+        </div>
+      </div>
       <div>
-        <div class="h3 text-3xl text-terracotta mb-3">01</div>
-        <h3 class="h3 text-2xl mb-4">Vous briefez</h3>
-        <p class="text-ink-soft leading-relaxed">
-          Vous décrivez votre boutique, votre clientèle, le moment que vous voulez créer
-          (atelier coaching style, conseil déco, rendez-vous bricolage).
-          Format, durée, période — vous gardez la main.
+        <h3 class="display" style="font-size:26px;font-weight:600;margin-bottom:10px">Un paiement sécurisé, de bout en bout.</h3>
+        <p style="color:var(--soft);font-size:15px;margin-bottom:18px">
+          L'argent de l'enseigne est retenu en entiercement dès la confirmation. Il n'est
+          libéré vers l'expert qu'une fois la prestation validée, une protection pour
+          les deux parties. En cas de désaccord, un litige est arbitré par notre équipe.
         </p>
-      </div>
-      <div>
-        <div class="h3 text-3xl text-terracotta mb-3">02</div>
-        <h3 class="h3 text-2xl mb-4">Nous proposons</h3>
-        <p class="text-ink-soft leading-relaxed">
-          Maison Présence vous présente 2 ou 3 experts indépendants sélectionnés sur leur
-          expertise, leur expérience en boutique et leur affinité avec votre univers de marque.
-        </p>
-      </div>
-      <div>
-        <div class="h3 text-3xl text-terracotta mb-3">03</div>
-        <h3 class="h3 text-2xl mb-4">L'expert vit votre marque</h3>
-        <p class="text-ink-soft leading-relaxed">
-          Le jour J, l'expert intervient dans votre boutique. Vos clients vivent un vrai
-          moment d'écoute et de conseil. Vous récupérez les retours et un debrief précis
-          pour affiner votre programmation.
-        </p>
+        <a href="demo.html" class="btn btn-primary">Découvrir la démo interactive →</a>
       </div>
     </div>
+
+    <!-- mini grid : dashboard + score -->
+    <div class="mini-grid">
+      <div class="browser">
+        <div class="browser-bar">
+          <span class="d" style="background:#E06A5B"></span><span class="d" style="background:#E5B85C"></span><span class="d" style="background:#7FB87F"></span>
+          <span class="url">maison-presence.fr/enseigne</span>
+        </div>
+        <div class="browser-body">
+          <div class="m-eyebrow">Espace enseigne</div>
+          <div class="m-title" style="font-size:15px;margin:3px 0 4px">Tableau de bord</div>
+          <div class="m-kpis">
+            <div class="m-kpi"><div class="v">1</div><div class="l">À valider</div></div>
+            <div class="m-kpi"><div class="v">2</div><div class="l">À venir</div></div>
+            <div class="m-kpi"><div class="v">6</div><div class="l">Réalisées</div></div>
+          </div>
+          <div class="m-row"><span>MP-2026-0048 · Diagnostic style</span><span class="m-badge">Confirmée</span></div>
+          <div class="m-row"><span>MP-2026-0039 · Colorimétrie</span><span class="m-badge green">Terminée</span></div>
+        </div>
+      </div>
+      <div class="browser">
+        <div class="browser-bar">
+          <span class="d" style="background:#E06A5B"></span><span class="d" style="background:#E5B85C"></span><span class="d" style="background:#7FB87F"></span>
+          <span class="url">maison-presence.fr/expert/profil</span>
+        </div>
+        <div class="browser-body">
+          <div class="m-eyebrow">Espace expert · réputation</div>
+          <div class="m-title" style="font-size:15px;margin:3px 0 8px">Mon profil &amp; score</div>
+          <div style="display:flex;align-items:baseline;gap:10px">
+            <span class="m-score">4,8</span><span class="stars" style="font-size:14px">★★★★★</span>
+          </div>
+          <div style="font-size:10px;color:var(--soft);margin-bottom:8px">Score pondéré sur 24 évaluations</div>
+          <div class="m-row"><span>Professionnalisme</span><span class="stars">★★★★★</span></div>
+          <div class="m-row"><span>Qualité du conseil</span><span class="stars">★★★★★</span></div>
+          <div class="m-row"><span>Communication</span><span class="stars">★★★★☆</span></div>
+        </div>
+      </div>
+    </div>
+    <p style="text-align:center;margin-top:26px">
+      <a href="demo.html" class="btn btn-ghost">Parcourir la démo complète (4 espaces) →</a>
+    </p>
   </div>
 </section>
 
-<!-- ============ POURQUOI MAINTENANT ============ -->
-<section class="px-6 py-24">
-  <div class="max-w-4xl mx-auto">
-    <div class="text-center mb-12">
-      <p class="caption mb-5 gold-accent">Pourquoi maintenant</p>
-      <h2 class="h2 text-4xl md:text-5xl">
-        Une réponse au retail aseptisé.
-      </h2>
+<!-- ════════ POUR LES ENSEIGNES ════════ -->
+<section id="enseignes">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow gold-line">Pour les enseignes</span>
+      <h2>Offrez une expérience que le e-commerce<br/>ne pourra jamais copier.</h2>
     </div>
-    <div class="prose-warm space-y-6 text-center md:text-left max-w-3xl mx-auto">
-      <p>
-        L'ultra fast-fashion gagne du terrain en mettant la pression sur les prix et la nouveauté.
-        Les enseignes premium copient leurs codes — files d'attente, caisses automatiques,
-        scans à la chaîne — sans en proposer la même valeur. Le client, lui, ne distingue
-        plus pourquoi il devrait se déplacer.
-      </p>
-      <p>
-        Maison Présence parie sur l'inverse. Pas de course à l'efficacité froide :
-        un retour à l'expérience humaine, qualifiée, mémorable. Un conseil expert vaut
-        plus qu'une remise. Une rencontre vaut plus qu'une notification.
-      </p>
-      <p class="font-display italic text-xl text-terracotta border-l-2 border-gold pl-5">
-        « Un bon conseiller sait dire : cette pièce n'est pas pour vous,
-        mais j'ai exactement ce qu'il vous faut. C'est ainsi qu'on construit la confiance —
-        pas dans la pression. »
-      </p>
-    </div>
-  </div>
-</section>
-
-<!-- ============ INSCRIPTION ENSEIGNES ============ -->
-<section id="enseignes" class="px-6 py-24 bg-white border-y border-border">
-  <div class="max-w-3xl mx-auto">
-    <div class="text-center mb-12">
-      <p class="caption mb-5 gold-accent">Pour les enseignes</p>
-      <h2 class="h2 text-4xl md:text-5xl mb-6">
-        Vous lancez l'année avec un événement signature&nbsp;?
-      </h2>
-      <p class="text-lg text-ink-soft leading-relaxed">
-        Maison Présence organise les premières expériences pilotes à Paris et en Île-de-France
-        cet été. Inscrivez-vous pour être contactée en priorité.
-      </p>
-    </div>
-
-    <!-- ⚠️ REMPLACER l'attribut action par votre endpoint Formspree (https://formspree.io) ou Tally -->
-    <form action="https://formspree.io/f/REMPLACER_PAR_VOTRE_ID_FORMSPREE" method="POST" class="space-y-4">
-      <input type="hidden" name="_subject" value="Nouvelle inscription enseigne — Maison Présence" />
-      <input type="hidden" name="type" value="enseigne" />
-      <div class="grid md:grid-cols-2 gap-4">
-        <input type="text" name="nom" placeholder="Votre nom" required class="input-field" />
-        <input type="text" name="enseigne" placeholder="Nom de l'enseigne" required class="input-field" />
-      </div>
-      <div class="grid md:grid-cols-2 gap-4">
-        <input type="email" name="email" placeholder="Email professionnel" required class="input-field" />
-        <input type="tel" name="telephone" placeholder="Téléphone (facultatif)" class="input-field" />
-      </div>
-      <textarea name="message" placeholder="En quelques mots : votre univers, vos boutiques, le type d'événement qui vous intéresse." rows="4" class="input-field"></textarea>
-      <button type="submit" class="btn-primary w-full md:w-auto">Être contactée pour les pilotes</button>
-      <p class="text-xs text-ink-soft mt-2">En soumettant ce formulaire vous acceptez d'être recontactée par Maison Présence dans le cadre de la phase pilote. Vos données ne sont ni revendues ni transmises à des tiers.</p>
-    </form>
-  </div>
-</section>
-
-<!-- ============ INSCRIPTION EXPERTS ============ -->
-<section id="experts" class="px-6 py-24">
-  <div class="max-w-3xl mx-auto">
-    <div class="text-center mb-12">
-      <p class="caption mb-5 gold-accent">Pour les experts indépendants</p>
-      <h2 class="h2 text-4xl md:text-5xl mb-6">
-        Coachs, architectes, décorateurs, bricoleurs&nbsp;: rejoignez le réseau.
-      </h2>
-      <p class="text-lg text-ink-soft leading-relaxed">
-        Maison Présence vous met en relation avec des enseignes qui valorisent votre expertise
-        et la rémunèrent à sa juste valeur. Aucun frais d'inscription, aucun engagement.
-      </p>
-    </div>
-
-    <!-- ⚠️ REMPLACER l'attribut action par votre endpoint Formspree (https://formspree.io) ou Tally -->
-    <form action="https://formspree.io/f/REMPLACER_PAR_VOTRE_ID_FORMSPREE" method="POST" class="space-y-4">
-      <input type="hidden" name="_subject" value="Nouvelle inscription expert — Maison Présence" />
-      <input type="hidden" name="type" value="expert" />
-      <div class="grid md:grid-cols-2 gap-4">
-        <input type="text" name="nom" placeholder="Votre nom" required class="input-field" />
-        <input type="text" name="metier" placeholder="Votre métier (coach image, architecte d'intérieur…)" required class="input-field" />
-      </div>
-      <div class="grid md:grid-cols-2 gap-4">
-        <input type="email" name="email" placeholder="Email" required class="input-field" />
-        <input type="url" name="portfolio" placeholder="LinkedIn ou portfolio (URL)" class="input-field" />
-      </div>
-      <textarea name="experience" placeholder="Brièvement : vos années d'expérience, vos spécialités, et ce qui vous attire dans le format boutique." rows="4" class="input-field"></textarea>
-      <button type="submit" class="btn-primary w-full md:w-auto">Rejoindre le réseau</button>
-      <p class="text-xs text-ink-soft mt-2">Inscription sans engagement. Une attestation de RC professionnelle vous sera demandée avant toute mission.</p>
-    </form>
-  </div>
-</section>
-
-<!-- ============ FOOTER ============ -->
-<footer class="px-6 py-16 bg-ink text-cream">
-  <div class="max-w-6xl mx-auto">
-    <div class="grid md:grid-cols-3 gap-12 mb-12">
-      <div>
-        <p class="font-display text-2xl mb-3">Maison Présence</p>
-        <p class="text-sm text-cream/70 leading-relaxed">
-          Le conseil retrouve sa place en boutique.<br/>
-          Lancement Paris &amp; Île-de-France, été 2026.
-        </p>
-      </div>
-      <div>
-        <p class="caption text-cream/60 mb-3">Contact</p>
-        <a href="mailto:contact@maisonpresence.fr" class="text-cream hover:text-gold transition">contact@maisonpresence.fr</a>
-      </div>
-      <div>
-        <p class="caption text-cream/60 mb-3">Légal</p>
-        <ul class="space-y-2 text-sm">
-          <li><a href="/mentions-legales" class="text-cream/80 hover:text-gold transition">Mentions légales</a></li>
-          <li><a href="/confidentialite" class="text-cream/80 hover:text-gold transition">Politique de confidentialité</a></li>
-          <li><a href="/cgu" class="text-cream/80 hover:text-gold transition">Conditions d'utilisation</a></li>
+    <div class="vcols">
+      <div class="vcard">
+        <h3>Ce que vous y gagnez</h3>
+        <ul class="vlist">
+          <li>Des événements en boutique sans recruter ni former</li>
+          <li>Des experts pré-sélectionnés, assurés, notés</li>
+          <li>Une expérience client différenciante et mémorable</li>
+          <li>Un paiement sécurisé : vous ne payez que si la prestation a eu lieu</li>
+          <li>Un format souple : une demi-journée, une semaine, un cycle récurrent</li>
         </ul>
       </div>
+      <div class="vcard" style="background:#FBF1EC;border-color:#E6C9BD">
+        <h3>Enseigne fondatrice</h3>
+        <p style="color:var(--soft);font-size:14.5px">Les premières enseignes inscrites bénéficient d'avantages réservés&nbsp;:</p>
+        <div class="founder" style="margin-top:14px">
+          <div class="tag">Accompagnement dédié</div>
+          <p style="font-size:14px;margin-top:4px">Votre premier événement co-construit et piloté avec notre équipe.</p>
+        </div>
+        <div class="founder" style="margin-top:10px">
+          <div class="tag">Tarif préférentiel</div>
+          <p style="font-size:14px;margin-top:4px">Conditions avantageuses garanties sur vos six premiers mois.</p>
+        </div>
+        <a href="#form-enseigne" class="btn btn-primary" style="margin-top:16px">Pré-inscrire mon enseigne</a>
+      </div>
     </div>
-    <div class="pt-8 border-t border-cream/20 text-xs text-cream/50 flex flex-col md:flex-row justify-between gap-2">
-      <p>© 2026 Maison Présence. Tous droits réservés.</p>
-      <p>SIRET&nbsp;: à compléter · RCS&nbsp;: à compléter</p>
+  </div>
+</section>
+
+<!-- ════════ POUR LES EXPERTS ════════ -->
+<section class="band" id="experts">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow gold-line">Pour les experts</span>
+      <h2>Votre savoir-faire mérite<br/>de belles boutiques.</h2>
+    </div>
+    <div class="vcols">
+      <div class="vcard">
+        <h3>Ce que vous y gagnez</h3>
+        <ul class="vlist">
+          <li>Des missions avec des enseignes qui valorisent le conseil</li>
+          <li>Une rémunération à votre juste valeur, paiement garanti</li>
+          <li>Un score de réputation qui met votre travail en avant</li>
+          <li>Zéro frais d'inscription, zéro engagement</li>
+          <li>Vous choisissez vos missions, vos dates, vos zones</li>
+        </ul>
+      </div>
+      <div class="vcard" style="background:#FBF1EC;border-color:#E6C9BD">
+        <h3>Expert fondateur</h3>
+        <p style="color:var(--soft);font-size:14.5px">Les premiers experts inscrits démarrent avec une longueur d'avance&nbsp;:</p>
+        <div class="founder" style="margin-top:14px">
+          <div class="tag">Commission réduite</div>
+          <p style="font-size:14px;margin-top:4px">Une commission allégée sur vos missions des six premiers mois.</p>
+        </div>
+        <div class="founder" style="margin-top:10px">
+          <div class="tag">Mise en avant prioritaire</div>
+          <p style="font-size:14px;margin-top:4px">Profil proposé en priorité aux enseignes dès l'ouverture.</p>
+        </div>
+        <a href="#form-expert" class="btn btn-primary" style="margin-top:16px">Rejoindre le réseau fondateur</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════ PRÉ-INSCRIPTION ════════ -->
+<section id="inscription">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow gold-line">Pré-inscription fondateurs</span>
+      <h2>Réservez votre place.</h2>
+      <p>Inscription sans engagement. Nous vous recontactons avant l'ouverture pour
+        préparer votre arrivée sur la plateforme.</p>
+    </div>
+    <div class="forms">
+      <!-- ⚠️ Tally : créer un formulaire "Pré-inscription Enseigne" sur https://tally.so
+           (compte créé avec contact@maison-presence.com, ajouter lesbonscoachs@gmail.com
+           en destinataire supplémentaire dans Settings → Notifications).
+           Puis remplacer KYa4RA par l'identifiant du formulaire
+           (visible dans l'URL : tally.so/r/<ID>). -->
+      <div class="fcard" id="form-enseigne">
+        <h3>Enseigne</h3>
+        <p class="intro">Vous dirigez ou animez des boutiques et souhaitez offrir un vrai conseil à vos clients.</p>
+        <iframe
+          data-tally-src="https://tally.so/embed/KYa4RA?alignLeft=1&amp;hideTitle=1&amp;transparentBackground=1&amp;dynamicHeight=1"
+          loading="lazy" width="100%" height="500" frameborder="0" marginheight="0" marginwidth="0"
+          title="Pré-inscription enseigne, Maison Présence"></iframe>
+        <p class="legal">Sans engagement. Vos données ne sont ni revendues ni transmises à des tiers.</p>
+      </div>
+      <!-- ⚠️ Tally : créer un formulaire "Pré-inscription Expert".
+           Remplacer 9qoYxp par l'identifiant du formulaire. -->
+      <div class="fcard" id="form-expert">
+        <h3>Expert</h3>
+        <p class="intro">Coach en image, architecte d'intérieur, décorateur, bricoleur, indépendant·e.</p>
+        <iframe
+          data-tally-src="https://tally.so/embed/9qoYxp?alignLeft=1&amp;hideTitle=1&amp;transparentBackground=1&amp;dynamicHeight=1"
+          loading="lazy" width="100%" height="500" frameborder="0" marginheight="0" marginwidth="0"
+          title="Pré-inscription expert, Maison Présence"></iframe>
+        <p class="legal">Sans engagement. Une attestation RC pro vous sera demandée avant la première mission.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════ FAQ ════════ -->
+<section class="band">
+  <div class="wrap" style="max-width:760px">
+    <div class="sec-head">
+      <span class="eyebrow gold-line">Questions fréquentes</span>
+      <h2>Avant de vous inscrire</h2>
+    </div>
+    <div class="faq">
+      <details><summary>Quand la plateforme ouvre-t-elle ?</summary>
+        <p>Le lancement est prévu pour décembre 2026, sur toute la France. Les membres
+          fondateurs sont contactés en priorité avant l'ouverture.</p></details>
+      <details><summary>La pré-inscription m'engage-t-elle ?</summary>
+        <p>Non, aucunement. Elle vous réserve simplement votre place de membre fondateur et
+          ses avantages. Vous restez libre de ne pas donner suite.</p></details>
+      <details><summary>Combien coûte l'inscription ?</summary>
+        <p>L'inscription est gratuite, pour les enseignes comme pour les experts. Maison Présence
+          se rémunère via une commission sur les prestations réalisées.</p></details>
+      <details><summary>Comment les experts sont-ils sélectionnés ?</summary>
+        <p>Chaque expert est qualifié sur son expérience, doit fournir une attestation de
+          responsabilité civile professionnelle, et construit un score de réputation à partir
+          des évaluations des enseignes.</p></details>
+      <details><summary>Comment le paiement est-il sécurisé ?</summary>
+        <p>L'enseigne paie à la confirmation ; les fonds sont retenus en entiercement et ne
+          sont versés à l'expert qu'une fois la prestation validée. En cas de litige, notre
+          équipe arbitre avant toute libération.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- ════════ CONTACT ════════ -->
+<section id="contact">
+  <div class="wrap" style="max-width:620px">
+    <div class="sec-head">
+      <span class="eyebrow gold-line">Une question ?</span>
+      <h2>Écrivez-nous.</h2>
+      <p>Une interrogation sur le concept, une demande de partenariat ou de presse :
+        nous vous répondons rapidement.</p>
+    </div>
+    <!-- ⚠️ Tally : créer un formulaire "Contact général".
+         Remplacer LZ6jVj par l'identifiant du formulaire. -->
+    <div class="fcard">
+      <iframe
+        data-tally-src="https://tally.so/embed/LZ6jVj?alignLeft=1&amp;hideTitle=1&amp;transparentBackground=1&amp;dynamicHeight=1"
+        loading="lazy" width="100%" height="400" frameborder="0" marginheight="0" marginwidth="0"
+        title="Message de contact, Maison Présence"></iframe>
+      <p class="legal">Vos données ne sont ni revendues ni transmises à des tiers.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ════════ CTA FINAL ════════ -->
+<section class="band-dark">
+  <div class="wrap" style="text-align:center">
+    <h2 class="display" style="font-size:38px;font-weight:600;max-width:20ch;margin:0 auto 14px">
+      Le retail de demain se construit maintenant.
+    </h2>
+    <p style="color:#B8B0A6;max-width:54ch;margin:0 auto 26px">
+      Rejoignez les enseignes et les experts qui font le pari de l'humain.
+    </p>
+    <a href="#inscription" class="btn btn-primary">Réserver ma place de fondateur</a>
+  </div>
+</section>
+
+<!-- ════════ FOOTER ════════ -->
+<footer>
+  <div class="wrap">
+    <div class="cols">
+      <div>
+        <div class="fbrand">Maison Présence</div>
+        <p style="font-size:13.5px;color:rgba(250,246,240,.7);max-width:34ch">
+          Le conseil retrouve sa place en boutique. Lancement décembre 2026, partout en France.
+        </p>
+      </div>
+      <div>
+        <p class="eyebrow" style="color:rgba(250,246,240,.5);margin-bottom:10px">Découvrir</p>
+        <p style="font-size:14px;line-height:2.1">
+          <a href="#concept">Le concept</a><br/>
+          <a href="demo.html">La démo interactive</a><br/>
+          <a href="#inscription">Pré-inscription</a>
+        </p>
+      </div>
+      <div>
+        <p class="eyebrow" style="color:rgba(250,246,240,.5);margin-bottom:10px">Contact</p>
+        <p style="font-size:14px;line-height:2.1">
+          <a href="mailto:contact@maison-presence.com">contact@maison-presence.com</a>
+        </p>
+      </div>
+    </div>
+    <div class="small">
+      <span>© 2026 Maison Présence. Tous droits réservés.</span>
+      <span><a href="#">Mentions légales</a> · <a href="#">Confidentialité</a></span>
     </div>
   </div>
 </footer>
+
+<!-- Tally : script qui redimensionne automatiquement les iframes en fonction de la hauteur du formulaire -->
+<script async src="https://tally.so/widgets/embed.js"></script>
 
 </body>
 </html>
